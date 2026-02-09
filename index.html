@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Sara 💖</title>
+    <style>
+        /* FONDO ROSADO PASTEL */
+        body {
+            background-color: #fce4ec; /* Rosado pastel */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            color: #880e4f;
+        }
+
+        .tarjeta {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.1);
+            text-align: center;
+            border: 2px solid #f8bbd0;
+            z-index: 10;
+            max-width: 80%;
+        }
+
+        /* TEXTO PERSONALIZADO */
+        .gracias {
+            font-size: 22px;
+            margin-bottom: 10px;
+            display: block;
+            font-weight: 300;
+        }
+
+        .nombre {
+            font-size: 45px; /* Más grande */
+            font-weight: bold; /* Negritas */
+            display: block;
+            margin-top: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* BOTÓN SORPRESA */
+        .btn-sorpresa {
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: #ff80ab;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 128, 171, 0.4);
+        }
+
+        .btn-sorpresa:hover {
+            transform: scale(1.1);
+        }
+
+        /* DECORACIÓN: CORAZONES FLOTANTES */
+        .corazon {
+            position: absolute;
+            color: #f48fb1;
+            font-size: 24px;
+            user-select: none;
+            pointer-events: none;
+            animation: flotar 6s linear infinite;
+            bottom: -50px;
+        }
+
+        @keyframes flotar {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tarjeta">
+        <span class="gracias">muchas gracias por ser mi mejor amiga</span>
+        <span class="nombre">te quiero mucho sara 💖</span>
+        <button class="btn-sorpresa" onclick="crearFlores()">¡Presiona aquí! ✨</button>
+    </div>
+
+    <script>
+        // Decoración automática: Lluvia de corazones
+        function crearCorazon() {
+            const corazon = document.createElement('div');
+            corazon.classList.add('corazon');
+            corazon.innerHTML = '❤️';
+            corazon.style.left = Math.random() * 100 + 'vw';
+            corazon.style.fontSize = Math.random() * 20 + 10 + 'px';
+            corazon.style.animationDuration = Math.random() * 3 + 4 + 's';
+            corazon.style.opacity = Math.random();
+            document.body.appendChild(corazon);
+
+            setTimeout(() => {
+                corazon.remove();
+            }, 6000);
+        }
+        setInterval(crearCorazon, 500);
+
+        // Sorpresa al hacer clic: Explosión de flores
+        function crearFlores() {
+            for(let i = 0; i < 20; i++) {
+                const flor = document.createElement('div');
+                flor.classList.add('corazon');
+                flor.innerHTML = '🌸';
+                flor.style.left = Math.random() * 100 + 'vw';
+                flor.style.bottom = '0';
+                flor.style.fontSize = '30px';
+                flor.style.animationDuration = '2s';
+                document.body.appendChild(flor);
+                setTimeout(() => flor.remove(), 2000);
+            }
+        }
+    </script>
+</body>
+</html>
